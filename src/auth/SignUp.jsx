@@ -70,7 +70,7 @@ const SignUp = () => {
           />
           <button type="submit">Sign up</button>
           <div>
-            <p className="already" style={{ margin: ".8rem 0", color: "#777" }}> already have an account ? <a href="/signin" className="link">Sign in</a> </p>
+            <p className="already" style={{ margin: ".8rem 0", color: "#777" }}>Already have an account ? <a href="/signin" className="link">Sign in</a> </p>
           </div>
         </form>
       </div>

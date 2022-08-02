@@ -30,7 +30,7 @@ const Cart = () => {
         </div>
         <div className="checkout">
           <div className="wrapper">
-            <h2>Total</h2>
+            <h2 style={{color:"#777"}}>Total</h2>
             <h3>{total}.000 DT</h3>
             <button>Checkout</button>
           </div>

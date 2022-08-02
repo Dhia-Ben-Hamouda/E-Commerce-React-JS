@@ -32,9 +32,9 @@ const CartItem = ({id , name , picture , price , quantity})=>{
           </h1>
           <div className="wrap">
             <div>
-              <div className="span" style={{cursor:"pointer"}} onClick={decrement}>-</div>
-              <span style={{marginInline:"1rem"}}>{quantity}</span>
-              <div className="span" style={{cursor:"pointer"}} onClick={increment}>+</div>
+              <div className="span" style={{cursor:"pointer" , fontWeight:"600"}} onClick={decrement}>-</div>
+              <span style={{marginInline:"1rem" , fontWeight:"600" , color:"#777"}}>{quantity}</span>
+              <div className="span" style={{cursor:"pointer" , fontWeight:"600"}} onClick={increment}>+</div>
             </div>
             <h2>{price * quantity}.000 DT</h2>
           </div>

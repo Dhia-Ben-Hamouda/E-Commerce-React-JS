@@ -70,13 +70,17 @@ const SignIn = () => {
               value={password}
               onChange={(e) => { setPassword(e.target.value) }}
               className="input"
+              id="last"
             />
           </ThemeProvider>
+          <a href="/passwordReset" className="forgot">
+            Forgot password ?
+          </a>
           <button type="submit">
             Sign in
           </button>
           <div>
-            <p className="dont"> don't have an account ? <a href="/signup" className="link">Sign up</a> </p>
+            <p className="dont">Don't have an account ? <a href="/signup" className="link">Sign up</a> </p>
           </div>
           <div>
             <p className="sign-in-with">or sign in with</p>

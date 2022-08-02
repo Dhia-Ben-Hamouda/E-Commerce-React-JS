@@ -161,8 +161,9 @@
       }
 
       h1 {
-        font-size: 18px;
+        font-size: 20px;
         color: #777;
+        font-weight: 600;
       }
 
       .price-inputs {
@@ -175,6 +176,7 @@
           width: 80px;
           color: #777;
           text-align: center;
+          font-weight: 600;
           font-size: 13px;
 
           &:first-of-type {

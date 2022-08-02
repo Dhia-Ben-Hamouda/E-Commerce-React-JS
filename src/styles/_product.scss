@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    font-weight: 600;
 
     .right-btn {
       display: flex;
@@ -38,6 +39,7 @@
 
     h2 {
       color: red;
+      font-weight: 600;
       font-size: 17px;
       margin:auto 0;
     }
@@ -48,12 +50,14 @@
       
       a{
         text-decoration: none;
+        font-weight: 600;
       }
     }
 
     h4 {
       font-size: 13px;
       line-height: 30px;
+      font-weight: 600;
       color: #777;
     }
 

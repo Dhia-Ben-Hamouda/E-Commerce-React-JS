@@ -1,6 +1,5 @@
-import React from "react";
-import { useState } from "react";
-import { FaUser } from "react-icons/fa";
+import React , { useState } from "react";
+import { TextField } from "@mui/material";
 
 const ResetPassword = ()=>{
   const [email , setEmail] = useState("");
@@ -28,15 +27,13 @@ const ResetPassword = ()=>{
     <>
       <div className="password-reset-container">
         <form onSubmit={submitHandler}>
-          <div className="field">
-            <FaUser color={"#777"}/>
-            <input 
-              type="email"
-              placeholder="Enter email..." 
-              value={email}
-              onChange={(e)=>{setEmail(e.target.value)}}
-            />
-          </div>
+          <TextField
+            type="email"
+            label="Enter email..." 
+            value={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
+            className="field"
+          />
           <button type="submit">Send password reset link</button>
         </form>
       </div>

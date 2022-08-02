@@ -126,7 +126,7 @@ const Navbar = () => {
               <div className="cart" style={{ marginLeft: ".75rem" }}>
                 <a href="/cart">
                   <FaShoppingCart />
-                  <div className="num" style={{ color: "white" }}>
+                  <div className="num" style={{ color: "white" , fontWeight:"600"}}>
                     {
                       count
                     }
