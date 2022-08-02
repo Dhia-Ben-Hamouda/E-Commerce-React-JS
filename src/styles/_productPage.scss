@@ -101,6 +101,11 @@
     border: none;
     background: #777;
     color: white;
+    transition: .5s;
+
+    &:hover{
+      background: $secondary;
+    }
   }
 
   .active {
@@ -251,6 +256,12 @@
   .pagination{
     margin-inline:1rem;
     justify-content: flex-start;
+
+    .page{
+      &:hover{
+        background: #777;
+      }
+    }
   }
 
   .mobile-filter,
