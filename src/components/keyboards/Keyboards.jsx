@@ -76,8 +76,8 @@ const Keyboards = () => {
             <div className="search-icon">
               <FaSearch color="white" size={"1.25rem"} />
             </div>
-            <input 
-              placeholder="Search for products" 
+            <input
+              placeholder="Search for products"
               value={searchTerm}
               onChange={(e) => { setSearchTerm(e.target.value) }}
             />
@@ -142,14 +142,14 @@ const Keyboards = () => {
               );
             })
           }
-          <div className="pagination">
-            <Pagination
-              page={page}
-              setPage={setPage}
-              numOfPages={numOfPages}
-            />
-          </div>
         </div>
+      </div>
+      <div className="pagination">
+        <Pagination
+          page={page}
+          setPage={setPage}
+          numOfPages={numOfPages}
+        />
       </div>
     </>
   );

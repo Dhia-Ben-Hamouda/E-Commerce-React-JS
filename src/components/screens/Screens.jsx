@@ -22,21 +22,21 @@ const Screens = () => {
   const [priceRange, setPriceRange] = useState([0, 1500]);
   const [page, setPage] = useState(1);
   const [numOfPages, setNumOfPages] = useState(1);
-  const [realPriceRange , setRealPriceRange ] = useState([]);
-  const [filters , setFilters ] = useState({
-    brand:[],
-    size:[],
-    resolution:[]
+  const [realPriceRange, setRealPriceRange] = useState([]);
+  const [filters, setFilters] = useState({
+    brand: [],
+    size: [],
+    resolution: []
   })
 
   useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/screens/getAllScreens",{
-          method:"POST",
-          headers:{
-            "content-type":"application/json"
+        const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/screens/getAllScreens", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
           },
           body: JSON.stringify({
             page,
@@ -56,7 +56,7 @@ const Screens = () => {
       }
     }
     fetchData();
-  }, [page , realPriceRange , filters]);
+  }, [page, realPriceRange, filters]);
 
   return (
     <>
@@ -142,14 +142,14 @@ const Screens = () => {
               );
             })
           }
-          <div className="pagination">
-            <Pagination
-              page={page}
-              setPage={setPage}
-              numOfPages={numOfPages}
-            />
-          </div>
         </div>
+      </div>
+      <div className="pagination">
+        <Pagination
+          page={page}
+          setPage={setPage}
+          numOfPages={numOfPages}
+        />
       </div>
     </>
   );

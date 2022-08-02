@@ -24,9 +24,11 @@
           line-height: 25px;
           color:$primary;
           margin-bottom: 1.75rem;
+          font-weight: 600;
         }
   
         h2{
+          font-weight: 600;
           font-size: 14px;
           line-height: 25px;
           margin-bottom: 1.75rem;
@@ -42,6 +44,7 @@
             color:red;
             font-size: 18px;
             margin:auto 0;
+            font-weight: 600;
           }
 
           button{
@@ -52,7 +55,8 @@
             padding:.7rem 1rem;
             border-radius: 10px;
             transition: .5s;
-            font-size: 11px;
+            font-size: 13px;
+            font-weight: 600;
 
             &:hover {
               transform: scale(1.15, 1);
