@@ -1,7 +1,7 @@
 .computer {
   background: white;
   margin: 1.75rem 1rem;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   display: flex;
   position: relative;
   box-shadow: 0px 1px 8px -1px rgba(0 ,0  ,0 , 0.2);
@@ -53,7 +53,7 @@
 
     h4 {
       font-size: 13px;
-      line-height: 20px;
+      line-height: 30px;
       color: #777;
     }
 
@@ -76,6 +76,10 @@
 
 .computer:first-child {
   margin-top: 0px;
+}
+
+.computer:last-of-type{
+  margin-bottom: 0rem;
 }
 
 

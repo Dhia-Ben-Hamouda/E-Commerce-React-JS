@@ -43,3 +43,14 @@
     width:95%;
   }
 }
+
+// mobile devices 
+
+@media(min-width:281px) and (max-width:640px)
+{
+  .sign-up-container{
+    .sign-up-form{
+      width:90%;
+    }
+  }
+}

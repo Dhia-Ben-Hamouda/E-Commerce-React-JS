@@ -147,14 +147,15 @@ const Computers = () => {
               );
             })
           }
-          <div className="pagination">
-            <Pagination
-              page={page}
-              setPage={setPage}
-              numOfPages={numOfPages}
-            />
-          </div>
+
         </div>
+      </div>
+      <div className="pagination">
+        <Pagination
+          page={page}
+          setPage={setPage}
+          numOfPages={numOfPages}
+        />
       </div>
     </>
   );
