@@ -9,6 +9,7 @@ import { FaSearch } from "react-icons/fa";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
 
+
 export function clickHandler() {
   let filter = document.querySelector(".mobile-filter");
 

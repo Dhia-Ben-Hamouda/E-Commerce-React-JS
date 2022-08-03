@@ -61,10 +61,10 @@ const MobileFilter = ({ filters, setFilters, priceRange, setPriceRange, setRealP
             <div className="mobile-slider">
               <Slider
                 className="s"
-                step={200}
+                step={20}
                 style={{ position: "absolute", left: "0", color: "#777", transform: "scale(.7)", marginBottom: ".75rem" }}
                 min={0}
-                max={4000}
+                max={300}
                 value={priceRange}
                 valueLabelDisplay="auto"
                 onChange={(e, newValue) => { setPriceRange(newValue) }}

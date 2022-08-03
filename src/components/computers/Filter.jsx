@@ -1,84 +1,85 @@
 import React from "react";
 import { Checkbox, FormGroup } from "@mui/material";
-import { Slider , FormControlLabel} from "@mui/material";
+import { Slider, FormControlLabel } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const Filter = ({filters , setFilters , priceRange , setPriceRange , setRealPriceRange})=>{
+const theme = createTheme({
+  components: {
+    MuiSlider: {
+      styleOverrides: {
+        thumb: {
+          color: "#fff"
+        }
+      }
+    }
+  }
+})
 
-  function handleFilters(e)
-  {
+const Filter = ({ filters, setFilters, priceRange, setPriceRange, setRealPriceRange }) => {
+
+  function handleFilters(e) {
     const name = e.target.name;
     const value = e.target.value;
 
-    switch(name)
-    {
+    switch (name) {
       case "brand":
-        if(e.target.checked)
-        {
+        if (e.target.checked) {
           const arr = filters.brand;
           arr.push(value);
-          setFilters({...filters , brand:arr})
+          setFilters({ ...filters, brand: arr })
         }
-        else
-        {
+        else {
           let arr = filters.brand;
           arr = arr.filter((item) => item !== value);
-          setFilters({...filters , brand:arr})
+          setFilters({ ...filters, brand: arr })
         }
         break;
       case "procesor":
-        if(e.target.checked)
-        {
+        if (e.target.checked) {
           const arr = filters.procesor;
           arr.push(value);
-          setFilters({...filters , procesor:arr})
+          setFilters({ ...filters, procesor: arr })
         }
-        else
-        {
+        else {
           let arr = filters.procesor;
           arr = arr.filter((item) => item !== value);
-          setFilters({...filters , procesor:arr})
+          setFilters({ ...filters, procesor: arr })
         }
         break;
       case "memory":
-        if(e.target.checked)
-        {
+        if (e.target.checked) {
           const arr = filters.memory;
           arr.push(value);
-          setFilters({...filters , memory:arr})
+          setFilters({ ...filters, memory: arr })
         }
-        else
-        {
+        else {
           let arr = filters.memory;
           arr = arr.filter((item) => item !== value);
-          setFilters({...filters , memory:arr})
+          setFilters({ ...filters, memory: arr })
         }
         break;
       case "drive":
-        if(e.target.checked)
-        {
+        if (e.target.checked) {
           const arr = filters.drive;
           arr.push(value);
-          setFilters({...filters , drive:arr})
+          setFilters({ ...filters, drive: arr })
         }
-        else
-        {
+        else {
           let arr = filters.drive;
           arr = arr.filter((item) => item !== value);
-          setFilters({...filters , drive:arr})
+          setFilters({ ...filters, drive: arr })
         }
         break;
       case "graphicsCard":
-        if(e.target.checked)
-        {
+        if (e.target.checked) {
           const arr = filters.graphicsCard;
           arr.push(value);
-          setFilters({...filters , graphicsCard:arr})
+          setFilters({ ...filters, graphicsCard: arr })
         }
-        else
-        {
+        else {
           let arr = filters.graphicsCard;
           arr = arr.filter((item) => item !== value);
-          setFilters({...filters , graphicsCard:arr})
+          setFilters({ ...filters, graphicsCard: arr })
         }
         break;
       default:
@@ -86,26 +87,28 @@ const Filter = ({filters , setFilters , priceRange , setPriceRange , setRealPric
     }
   }
 
-  return(
+  return (
     <>
       <div className="filter-container">
         <div className="header">
-          <h2 style={{color:"#fff" , margin:"auto 0"}}>Filter By</h2>
+          <h2 style={{ color: "#fff", margin: "auto 0" }}>Filter By</h2>
         </div>
         <div className="price">
           <h1>Price</h1>
           <div className="slider">
-            <Slider
-              className="s"
-              step={200}
-              style={{ color: "#777" , transform:"scale(.9)" , marginBottom:".75rem" }}
-              min={0}
-              max={4000}
-              value={priceRange}
-              valueLabelDisplay="auto"
-              onChange={(e, newValue) => { setPriceRange(newValue)  }}
-              onChangeCommitted={ (e,newValue) => {setRealPriceRange(priceRange) } }
-            />
+            <ThemeProvider theme={theme}>
+              <Slider
+                className="s"
+                step={200}
+                style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
+                min={0}
+                max={4000}
+                value={priceRange}
+                valueLabelDisplay="auto"
+                onChange={(e, newValue) => { setPriceRange(newValue) }}
+                onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
+              />
+            </ThemeProvider>
           </div>
           <div className="price-inputs">
             <input

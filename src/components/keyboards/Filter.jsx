@@ -1,6 +1,19 @@
 import React from "react";
 import { Checkbox, FormGroup } from "@mui/material";
 import { Slider, FormControlLabel } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  components: {
+    MuiSlider: {
+      styleOverrides: {
+        thumb: {
+          color: "#fff"
+        }
+      }
+    }
+  }
+})
 
 const Filter = ({ filters, setFilters, priceRange, setPriceRange, setRealPriceRange }) => {
 
@@ -65,17 +78,19 @@ const Filter = ({ filters, setFilters, priceRange, setPriceRange, setRealPriceRa
         <div className="price">
           <h1>Price</h1>
           <div className="slider">
-            <Slider
-              className="s"
-              step={20}
-              style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
-              min={0}
-              max={300}
-              value={priceRange}
-              valueLabelDisplay="auto"
-              onChange={(e, newValue) => { setPriceRange(newValue) }}
-              onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
-            />
+            <ThemeProvider theme={theme}>
+              <Slider
+                className="s"
+                step={20}
+                style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
+                min={0}
+                max={300}
+                value={priceRange}
+                valueLabelDisplay="auto"
+                onChange={(e, newValue) => { setPriceRange(newValue) }}
+                onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
+              />
+            </ThemeProvider>
           </div>
           <div className="price-inputs">
             <input

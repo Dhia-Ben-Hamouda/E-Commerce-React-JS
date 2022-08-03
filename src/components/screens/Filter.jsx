@@ -1,6 +1,19 @@
 import React from "react";
 import { Checkbox, FormGroup } from "@mui/material";
-import { Slider , FormControlLabel } from "@mui/material";
+import { Slider, FormControlLabel } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  components: {
+    MuiSlider: {
+      styleOverrides: {
+        thumb: {
+          color: "#fff"
+        }
+      }
+    }
+  }
+})
 
 const Filter = ({ filters, setFilters, setPriceRange, priceRange, setRealPriceRange }) => {
 
@@ -24,15 +37,13 @@ const Filter = ({ filters, setFilters, setPriceRange, priceRange, setRealPriceRa
         }
         break;
       case "size":
-        if (e.target.checked) 
-        {
+        if (e.target.checked) {
           const arr = filters.size;
           arr.push(value);
           setFilters({ ...filters, size: arr })
           console.log(filters);
         }
-        else 
-        {
+        else {
           let arr = filters.size;
           arr = arr.filter((item) => item !== value);
           setFilters({ ...filters, size: arr })
@@ -40,15 +51,13 @@ const Filter = ({ filters, setFilters, setPriceRange, priceRange, setRealPriceRa
         }
         break;
       case "resolution":
-        if (e.target.checked) 
-        {
+        if (e.target.checked) {
           const arr = filters.resolution;
           arr.push(value);
           setFilters({ ...filters, resolution: arr })
           console.log(filters);
         }
-        else 
-        {
+        else {
           let arr = filters.resolution;
           arr = arr.filter((item) => item !== value);
           setFilters({ ...filters, resolution: arr })
@@ -69,17 +78,19 @@ const Filter = ({ filters, setFilters, setPriceRange, priceRange, setRealPriceRa
         <div className="price">
           <h1>Price</h1>
           <div className="slider">
-            <Slider
-              className="s"
-              step={100}
-              style={{ color: "#777" , transform:"scale(.9)" , marginBottom:".75rem" }}
-              min={0}
-              max={1500}
-              valueLabelDisplay="auto"
-              value={priceRange}
-              onChange={(e, newValue) => { setPriceRange(newValue) }}
-              onChangeCommitted={() => { setRealPriceRange(priceRange) }}
-            />
+            <ThemeProvider theme={theme}>
+              <Slider
+                className="s"
+                step={100}
+                style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
+                min={0}
+                max={1500}
+                valueLabelDisplay="auto"
+                value={priceRange}
+                onChange={(e, newValue) => { setPriceRange(newValue) }}
+                onChangeCommitted={() => { setRealPriceRange(priceRange) }}
+              />
+            </ThemeProvider>
           </div>
           <div className="price-inputs">
             <input className="min" value={priceRange[0] + "  DT"} onChange={() => { }} />
