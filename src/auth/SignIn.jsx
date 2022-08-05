@@ -55,7 +55,7 @@ const SignIn = () => {
   return (
     <>
       <div className="sign-in-container">
-        <form className="sign-in-form" onSubmit={submitHandler}>
+        <form autoComplete="off" className="sign-in-form" onSubmit={submitHandler}>
           <ThemeProvider theme={theme}>
             <TextField
               type="email"

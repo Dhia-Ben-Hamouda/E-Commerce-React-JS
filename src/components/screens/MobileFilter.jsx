@@ -3,6 +3,24 @@ import { ImCross } from "react-icons/im";
 import arrow from "../../images/arrow.png";
 import { clickHandler } from "./Screens.jsx";
 import { Slider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  components: {
+    MuiSlider: {
+      styleOverrides: {
+        thumb: {
+          color: "#fff"
+        }
+      }
+    }
+  },
+  palette: {
+    primary: {
+      main: "#FCC312"
+    }
+  }
+})
 
 const MobileFilter = ({ filters, setFilters, priceRange, setPriceRange, setRealPriceRange }) => {
 
@@ -59,73 +77,75 @@ const MobileFilter = ({ filters, setFilters, priceRange, setPriceRange, setRealP
   }
 
   return (
-    <div className="mobile-filter4">
-      <div style={{ background: "#FCC312", alignSelf: "stretch", display: "flex", justifyContent: "flex-end", alignItems: "center", padding: ".5rem 1rem" }} onClick={clickHandler}>
-        <ImCross color="#fff" />
-      </div>
-      <div className="filter-container">
-        <div className="filter">
-          <div className="header" id="price" onClick={toggleHandler}>
-            <h2 id="price">Price</h2>
-            <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="price" alt="" />
-          </div>
-          <div className="content">
-            <div className="mobile-slider">
-              <Slider
-                className="s"
-                step={100}
-                style={{ position: "absolute", left: "0", color: "#777", transform: "scale(.7)", marginBottom: ".75rem" }}
-                min={0}
-                max={1500}
-                value={priceRange}
-                valueLabelDisplay="auto"
-                onChange={(e, newValue) => { setPriceRange(newValue) }}
-                onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
-              />
+    <ThemeProvider theme={theme}>
+      <div className="mobile-filter4">
+        <div style={{ background: "#FCC312", alignSelf: "stretch", display: "flex", justifyContent: "flex-end", alignItems: "center", padding: ".5rem 1rem" }} onClick={clickHandler}>
+          <ImCross color="#fff" />
+        </div>
+        <div className="filter-container">
+          <div className="filter">
+            <div className="header" id="price" onClick={toggleHandler}>
+              <h2 id="price">Price</h2>
+              <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="price" alt="" />
+            </div>
+            <div className="content">
+              <div className="mobile-slider">
+                <Slider
+                  className="s"
+                  step={100}
+                  style={{ position: "absolute", left: "0", color: "#777", transform: "scale(.7)", marginBottom: ".75rem" }}
+                  min={0}
+                  max={1500}
+                  value={priceRange}
+                  valueLabelDisplay="auto"
+                  onChange={(e, newValue) => { setPriceRange(newValue) }}
+                  onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="filter">
-          <div className="header" id="brand" onClick={toggleHandler}>
-            <h2 id="brand">Brand</h2>
-            <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="brand" alt="" />
+          <div className="filter">
+            <div className="header" id="brand" onClick={toggleHandler}>
+              <h2 id="brand">Brand</h2>
+              <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="brand" alt="" />
+            </div>
+            <div className="content">
+              <label><input name="brand" value="HP" type="checkbox" onChange={handleFilters} />HP</label>
+              <label><input name="brand" value="Redragon" type="checkbox" onChange={handleFilters} />Redragon</label>
+              <label><input name="brand" value="Dell" type="checkbox" onChange={handleFilters} />Dell</label>
+              <label><input name="brand" value="Samsung" type="checkbox" onChange={handleFilters} />Samsung</label>
+            </div>
           </div>
-          <div className="content">
-            <label><input name="brand" value="HP" type="checkbox" onChange={handleFilters} />HP</label>
-            <label><input name="brand" value="Redragon" type="checkbox" onChange={handleFilters} />Redragon</label>
-            <label><input name="brand" value="Dell" type="checkbox" onChange={handleFilters} />Dell</label>
-            <label><input name="brand" value="Samsung" type="checkbox" onChange={handleFilters} />Samsung</label>
-          </div>
-        </div>
 
-        <div className="filter">
-          <div className="header" id="procesor" onClick={toggleHandler}>
-            <h2 id="procesor" >Size</h2>
-            <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="procesor" alt="" />
+          <div className="filter">
+            <div className="header" id="procesor" onClick={toggleHandler}>
+              <h2 id="procesor" >Size</h2>
+              <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="procesor" alt="" />
+            </div>
+            <div className="content">
+              <label><input name="size" value="21" type="checkbox" onChange={handleFilters} />21'</label>
+              <label><input name="size" value="24" type="checkbox" onChange={handleFilters} />24'</label>
+              <label><input name="size" value="27" type="checkbox" onChange={handleFilters} />27'</label>
+              <label><input name="size" value="32" type="checkbox" onChange={handleFilters} />32'</label>
+            </div>
           </div>
-          <div className="content">
-            <label><input name="size" value="21" type="checkbox" onChange={handleFilters} />21'</label>
-            <label><input name="size" value="24" type="checkbox" onChange={handleFilters} />24'</label>
-            <label><input name="size" value="27" type="checkbox" onChange={handleFilters} />27'</label>
-            <label><input name="size" value="32" type="checkbox" onChange={handleFilters} />32'</label>
-          </div>
-        </div>
 
-        <div className="filter">
-          <div className="header" id="memory" onClick={toggleHandler}>
-            <h2 id="memory" >Resolution</h2>
-            <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="memory" alt="" />
+          <div className="filter">
+            <div className="header" id="memory" onClick={toggleHandler}>
+              <h2 id="memory" >Resolution</h2>
+              <img style={{ width: ".7rem", marginRight: ".1rem" }} src={arrow} id="memory" alt="" />
+            </div>
+            <div className="content">
+              <label><input name="resolution" value="HD" type="checkbox" onChange={handleFilters} />HD</label>
+              <label><input name="resolution" value="Full HD" type="checkbox" onChange={handleFilters} />Full HD</label>
+              <label><input name="resolution" value="QHD" type="checkbox" onChange={handleFilters} />QHD</label>
+              <label><input name="resolution" value="4k" type="checkbox" onChange={handleFilters} />4K</label>
+            </div>
           </div>
-          <div className="content">
-            <label><input name="resolution" value="HD" type="checkbox" onChange={handleFilters} />HD</label>
-            <label><input name="resolution" value="Full HD" type="checkbox" onChange={handleFilters} />Full HD</label>
-            <label><input name="resolution" value="QHD" type="checkbox" onChange={handleFilters} />QHD</label>
-            <label><input name="resolution" value="4k" type="checkbox" onChange={handleFilters} />4K</label>
-          </div>
-        </div>
 
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,6 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { TextField } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main:"#FCC312"
+    }
+  }
+})
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -38,42 +47,44 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="sign-up-container">
-        <form className="sign-up-form" onSubmit={submitHandler}>
-          <TextField
-            className="input"
-            type="text"
-            label="Enter name..."
-            value={name}
-            onChange={(e) => { setName(e.target.value) }}
-          />
-          <TextField
-            className="input"
-            type="text"
-            label="Enter phone..."
-            value={phone}
-            onChange={(e) => { setPhone(e.target.value) }}
-          />
-          <TextField
-            className="input"
-            type="email"
-            label="Enter email..."
-            value={email}
-            onChange={(e) => { setEmail(e.target.value) }}
-          />
-          <TextField
-            className="input"
-            type="password"
-            label="Enter password..."
-            value={password}
-            onChange={(e) => { setPassword(e.target.value) }}
-          />
-          <button type="submit">Sign up</button>
-          <div>
-            <p className="already" style={{ margin: ".8rem 0", color: "#777" }}>Already have an account ? <a href="/signin" className="link">Sign in</a> </p>
-          </div>
-        </form>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="sign-up-container">
+          <form autoComplete="off" className="sign-up-form" onSubmit={submitHandler}>
+            <TextField
+              className="input"
+              type="text"
+              label="Enter name..."
+              value={name}
+              onChange={(e) => { setName(e.target.value) }}
+            />
+            <TextField
+              className="input"
+              type="text"
+              label="Enter phone..."
+              value={phone}
+              onChange={(e) => { setPhone(e.target.value) }}
+            />
+            <TextField
+              className="input"
+              type="email"
+              label="Enter email..."
+              value={email}
+              onChange={(e) => { setEmail(e.target.value) }}
+            />
+            <TextField
+              className="input"
+              type="password"
+              label="Enter password..."
+              value={password}
+              onChange={(e) => { setPassword(e.target.value) }}
+            />
+            <button type="submit">Sign up</button>
+            <div>
+              <p className="already" style={{ margin: ".8rem 0", color: "#777" }}>Already have an account ? <a href="/signin" className="link">Sign in</a> </p>
+            </div>
+          </form>
+        </div>
+      </ThemeProvider>
     </>
   );
 }

@@ -12,6 +12,11 @@ const theme = createTheme({
         }
       }
     }
+  },
+  palette: {
+    primary: {
+      main: "#FCC312"
+    }
   }
 })
 
@@ -71,96 +76,98 @@ const Filter = ({ filters, setFilters, setPriceRange, priceRange, setRealPriceRa
 
   return (
     <>
-      <div className="filter-container">
-        <div className="header">
-          <h2 style={{ color: "#fff", margin: "auto 0" }}>Filter By</h2>
-        </div>
-        <div className="price">
-          <h1>Price</h1>
-          <div className="slider">
-            <ThemeProvider theme={theme}>
-              <Slider
-                className="s"
-                step={100}
-                style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
-                min={0}
-                max={1500}
-                valueLabelDisplay="auto"
-                value={priceRange}
-                onChange={(e, newValue) => { setPriceRange(newValue) }}
-                onChangeCommitted={() => { setRealPriceRange(priceRange) }}
+      <ThemeProvider theme={theme}>
+        <div className="filter-container">
+          <div className="header">
+            <h2 style={{ color: "#fff", margin: "auto 0" }}>Filter By</h2>
+          </div>
+          <div className="price">
+            <h1>Price</h1>
+            <div className="slider">
+              <ThemeProvider theme={theme}>
+                <Slider
+                  className="s"
+                  step={100}
+                  style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
+                  min={0}
+                  max={1500}
+                  valueLabelDisplay="auto"
+                  value={priceRange}
+                  onChange={(e, newValue) => { setPriceRange(newValue) }}
+                  onChangeCommitted={() => { setRealPriceRange(priceRange) }}
+                />
+              </ThemeProvider>
+            </div>
+            <div className="price-inputs">
+              <input className="min" value={priceRange[0] + "  DT"} onChange={() => { }} />
+              <input className="max" value={priceRange[1] + "  DT"} onChange={() => { }} />
+            </div>
+          </div>
+          <div className="brand">
+            <h1>Brand</h1>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox name="brand" value="HP" onChange={handleFilters} />}
+                label="HP"
               />
-            </ThemeProvider>
+              <FormControlLabel
+                control={<Checkbox name="brand" value="Redragon" onChange={handleFilters} />}
+                label="Redragon"
+              />
+              <FormControlLabel
+                control={<Checkbox name="brand" value="Dell" onChange={handleFilters} />}
+                label="Dell"
+              />
+              <FormControlLabel
+                control={<Checkbox name="brand" value="Samsung" onChange={handleFilters} />}
+                label="Samsung"
+              />
+            </FormGroup>
           </div>
-          <div className="price-inputs">
-            <input className="min" value={priceRange[0] + "  DT"} onChange={() => { }} />
-            <input className="max" value={priceRange[1] + "  DT"} onChange={() => { }} />
+          <div className="size">
+            <h1>Size</h1>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox name="size" value="21" onChange={handleFilters} />}
+                label="21'"
+              />
+              <FormControlLabel
+                control={<Checkbox name="size" value="24" onChange={handleFilters} />}
+                label="24'"
+              />
+              <FormControlLabel
+                control={<Checkbox name="size" value="27" onChange={handleFilters} />}
+                label="27'"
+              />
+              <FormControlLabel
+                control={<Checkbox name="size" value="32" onChange={handleFilters} />}
+                label="32'"
+              />
+            </FormGroup>
+          </div>
+          <div className="resolution">
+            <h1>Resolution</h1>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox name="resolution" value="HD" onChange={handleFilters} />}
+                label="HD"
+              />
+              <FormControlLabel
+                control={<Checkbox name="resolution" value="Full HD" onChange={handleFilters} />}
+                label="Full HD"
+              />
+              <FormControlLabel
+                control={<Checkbox name="resolution" value="QHD" onChange={handleFilters} />}
+                label="QHD"
+              />
+              <FormControlLabel
+                control={<Checkbox name="resolution" value="4K" onChange={handleFilters} />}
+                label="4K"
+              />
+            </FormGroup>
           </div>
         </div>
-        <div className="brand">
-          <h1>Brand</h1>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox name="brand" value="HP" onChange={handleFilters} />}
-              label="HP"
-            />
-            <FormControlLabel
-              control={<Checkbox name="brand" value="Redragon" onChange={handleFilters} />}
-              label="Redragon"
-            />
-            <FormControlLabel
-              control={<Checkbox name="brand" value="Dell" onChange={handleFilters} />}
-              label="Dell"
-            />
-            <FormControlLabel
-              control={<Checkbox name="brand" value="Samsung" onChange={handleFilters} />}
-              label="Samsung"
-            />
-          </FormGroup>
-        </div>
-        <div className="size">
-          <h1>Size</h1>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox name="size" value="21" onChange={handleFilters} />}
-              label="21'"
-            />
-            <FormControlLabel
-              control={<Checkbox name="size" value="24" onChange={handleFilters} />}
-              label="24'"
-            />
-            <FormControlLabel
-              control={<Checkbox name="size" value="27" onChange={handleFilters} />}
-              label="27'"
-            />
-            <FormControlLabel
-              control={<Checkbox name="size" value="32" onChange={handleFilters} />}
-              label="32'"
-            />
-          </FormGroup>
-        </div>
-        <div className="resolution">
-          <h1>Resolution</h1>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox name="resolution" value="HD" onChange={handleFilters} />}
-              label="HD"
-            />
-            <FormControlLabel
-              control={<Checkbox name="resolution" value="Full HD" onChange={handleFilters} />}
-              label="Full HD"
-            />
-            <FormControlLabel
-              control={<Checkbox name="resolution" value="QHD" onChange={handleFilters} />}
-              label="QHD"
-            />
-            <FormControlLabel
-              control={<Checkbox name="resolution" value="4K" onChange={handleFilters} />}
-              label="4K"
-            />
-          </FormGroup>
-        </div>
-      </div>
+      </ThemeProvider>
     </>
   );
 }

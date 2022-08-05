@@ -13,6 +13,11 @@ const theme = createTheme({
       }
     }
   }
+  , palette: {
+    primary: {
+      main: "#FCC312"
+    }
+  }
 })
 
 const Filter = ({ filters, setFilters, priceRange, setPriceRange, setRealPriceRange }) => {
@@ -71,84 +76,86 @@ const Filter = ({ filters, setFilters, priceRange, setPriceRange, setRealPriceRa
 
   return (
     <>
-      <div className="filter-container">
-        <div className="header">
-          <h2 style={{ color: "#fff", margin: "auto 0" }}>Filter By</h2>
-        </div>
-        <div className="price">
-          <h1>Price</h1>
-          <div className="slider">
-            <ThemeProvider theme={theme}>
-              <Slider
-                className="s"
-                step={20}
-                style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
-                min={0}
-                max={300}
-                value={priceRange}
-                valueLabelDisplay="auto"
-                onChange={(e, newValue) => { setPriceRange(newValue) }}
-                onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
+      <ThemeProvider theme={theme}>
+        <div className="filter-container">
+          <div className="header">
+            <h2 style={{ color: "#fff", margin: "auto 0" }}>Filter By</h2>
+          </div>
+          <div className="price">
+            <h1>Price</h1>
+            <div className="slider">
+              <ThemeProvider theme={theme}>
+                <Slider
+                  className="s"
+                  step={20}
+                  style={{ color: "#777", transform: "scale(.9)", marginBottom: ".75rem" }}
+                  min={0}
+                  max={300}
+                  value={priceRange}
+                  valueLabelDisplay="auto"
+                  onChange={(e, newValue) => { setPriceRange(newValue) }}
+                  onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
+                />
+              </ThemeProvider>
+            </div>
+            <div className="price-inputs">
+              <input
+                className="min"
+                value={priceRange[0] + "  DT"}
+                onChange={() => { }}
               />
-            </ThemeProvider>
+              <input
+                className="max"
+                value={priceRange[1] + "  DT"}
+                onChange={() => { }}
+              />
+            </div>
           </div>
-          <div className="price-inputs">
-            <input
-              className="min"
-              value={priceRange[0] + "  DT"}
-              onChange={() => { }}
-            />
-            <input
-              className="max"
-              value={priceRange[1] + "  DT"}
-              onChange={() => { }}
-            />
+          <div className="brand">
+            <h1>Brand</h1>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox name="brand" value="HP" onChange={handleFilters} />}
+                label="HP"
+              />
+              <FormControlLabel
+                control={<Checkbox name="brand" value="Redragon" onChange={handleFilters} />}
+                label="Redragon"
+              />
+              <FormControlLabel
+                control={<Checkbox name="brand" value="Dell" onChange={handleFilters} />}
+                label="Dell"
+              />
+            </FormGroup>
+          </div>
+          <div className="mechanical">
+            <h1>Mechanical</h1>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox name="mechanical" value="yes" onChange={handleFilters} />}
+                label="Yes"
+              />
+              <FormControlLabel
+                control={<Checkbox name="mechanical" value="no" onChange={handleFilters} />}
+                label="No"
+              />
+            </FormGroup>
+          </div>
+          <div className="wireless">
+            <h1>Wireless</h1>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox name="wireless" value="yes" onChange={handleFilters} />}
+                label="Yes"
+              />
+              <FormControlLabel
+                control={<Checkbox name="wireless" value="no" onChange={handleFilters} />}
+                label="No"
+              />
+            </FormGroup>
           </div>
         </div>
-        <div className="brand">
-          <h1>Brand</h1>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox name="brand" value="HP" onChange={handleFilters} />}
-              label="HP"
-            />
-            <FormControlLabel
-              control={<Checkbox name="brand" value="Redragon" onChange={handleFilters} />}
-              label="Redragon"
-            />
-            <FormControlLabel
-              control={<Checkbox name="brand" value="Dell" onChange={handleFilters} />}
-              label="Dell"
-            />
-          </FormGroup>
-        </div>
-        <div className="mechanical">
-          <h1>Mechanical</h1>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox name="mechanical" value="yes" onChange={handleFilters} />}
-              label="Yes"
-            />
-            <FormControlLabel
-              control={<Checkbox name="mechanical" value="no" onChange={handleFilters} />}
-              label="No"
-            />
-          </FormGroup>
-        </div>
-        <div className="wireless">
-          <h1>Wireless</h1>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox name="wireless" value="yes" onChange={handleFilters} />}
-              label="Yes"
-            />
-            <FormControlLabel
-              control={<Checkbox name="wireless" value="no" onChange={handleFilters} />}
-              label="No"
-            />
-          </FormGroup>
-        </div>
-      </div>
+      </ThemeProvider>
     </>
   );
 }
