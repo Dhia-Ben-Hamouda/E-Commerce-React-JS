@@ -60,7 +60,25 @@ nav{
     .wrapper{
       display:flex;
       align-items: center;
+      position: relative;
       z-index:20;
+
+      .cart{
+        margin-left:.25rem;
+      }
+
+      .num{
+        background:$secondary;
+        position: absolute;
+        right:-8px;
+        bottom: 5px;
+        height:20px;
+        width:20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
 
       .wrap{
         position: relative;
@@ -230,22 +248,6 @@ nav{
         }
       }
       
-    }
-
-    .cart{
-      position:relative;
-      .num{
-        background:$secondary;
-        position: absolute;
-        right:-10px;
-        bottom: -10px;
-        height:25px;
-        width:25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-      }
     }
   }
 }

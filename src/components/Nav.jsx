@@ -120,24 +120,22 @@ const Navbar = () => {
                     </ul>
                   </IconContext.Provider>
                 </div> : <a href="/signin">
-                  <FaUserAlt />
+                  <FaUserAlt size={"2.25rem"}/>
                 </a>
               }
-              <div className="cart" style={{ marginLeft: ".75rem" }}>
-                <a href="/cart">
-                  <FaShoppingCart />
-                  <div className="num" style={{ color: "white" , fontWeight:"600"}}>
+                <a href="/cart" className="cart">
+                  <FaShoppingCart size={"2.5rem"}/>
+                  <div className="num">
                     {
                       count
                     }
                   </div>
                 </a>
-              </div>
             </div>
           </IconContext.Provider>
         </div>
       </nav>
-      <ul className="mobile-list" style={{background:"white"}}>
+      <ul className="mobile-list">
         <li>
           <a href="/computers">Computers</a>
         </li>
