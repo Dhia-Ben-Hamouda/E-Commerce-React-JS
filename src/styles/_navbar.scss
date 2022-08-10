@@ -65,6 +65,10 @@ nav{
 
       .cart{
         margin-left:.25rem;
+
+        &:hover{
+          color: white;
+        }
       }
 
       .num{
@@ -78,6 +82,8 @@ nav{
         justify-content: center;
         align-items: center;
         border-radius: 50%;
+
+        
       }
 
       .wrap{
