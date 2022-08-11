@@ -313,6 +313,19 @@
           height: 0px;
           transition: .3s;
 
+          .mobile-inputs{
+            display: flex;
+            justify-content: space-between;
+            padding-inline: .25rem;
+
+            .min , .max{
+              font-size: 11px;
+              border: 1px solid #777;
+              color: #777;
+              padding: .1rem;
+            }
+          }
+
           .mobile-slider {
             margin-top: .7rem;
             height: 40px;

@@ -102,6 +102,18 @@ const MobileFilter = ({ filters, setFilters, priceRange, setPriceRange, setRealP
                   onChangeCommitted={(e, newValue) => { setRealPriceRange(priceRange) }}
                 />
               </div>
+              <div className="mobile-inputs">
+                <div className="min">
+                  {
+                    priceRange[0] + " DT"
+                  }
+                </div>
+                <div className="max">
+                  {
+                    priceRange[1] + " DT"
+                  }
+                </div>
+              </div>
             </div>
           </div>
           <div className="filter">

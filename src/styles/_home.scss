@@ -75,6 +75,13 @@
 
 
 @media (max-width:576px) {
+
+  .carousel{
+    .carousel-indicators{
+      margin-bottom: 0px;
+    }
+  }
+
   .add-container {
     .add-grid {
       grid-template-columns: auto auto;
