@@ -135,7 +135,7 @@ const Navbar = () => {
           </IconContext.Provider>
         </div>
       </nav>
-      <ul className="mobile-list">
+      <ul className="mobile-list" style={{background:"white"}}>
         <li>
           <a href="/computers">Computers</a>
         </li>
