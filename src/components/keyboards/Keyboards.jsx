@@ -8,6 +8,7 @@ import Pagination from "../Pagination.jsx";
 import { FaSearch } from "react-icons/fa";
 import MobileFilter from "./MobileFilter.jsx";
 import { useSelector } from "react-redux";
+import url from "../api/baseURL.js";
 
 export function clickHandler() {
   let filter = document.querySelector(".mobile-filter2");
@@ -34,7 +35,7 @@ const Keyboards = () => {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/keyboards/getAllKeyboards", {
+        const response = await fetch(`${url}/keyboards/getAllKeyboards`, {
           method: "POST",
           headers: {
             "content-type": "application/json"

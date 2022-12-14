@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
-
+import url from "../api/baseURL.js";
 
 export function clickHandler() {
   let filter = document.querySelector(".mobile-filter");
@@ -37,7 +37,7 @@ const Computers = () => {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/computers/getAllComputers", {
+        const response = await fetch(`${url}/computers/getAllComputers`, {
           method: "POST",
           headers: {
             "content-type": "application/json"

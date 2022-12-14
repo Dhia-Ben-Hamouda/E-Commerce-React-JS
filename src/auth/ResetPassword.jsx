@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import url from "../api/baseURL.js";
 
 const theme = createTheme({
   palette: {
@@ -16,7 +17,7 @@ const ResetPassword = () => {
   async function submitHandler(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/resetPassword", {
+    const response = await fetch(`${url}/resetPassword`, {
       method: "POST",
       headers: {
         "content-type": "application/json"

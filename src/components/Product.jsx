@@ -5,6 +5,7 @@ import { addToCart } from "../app/actions/cartActions.js";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import url from "../api/baseURL.js";
 
 const Product = () => {
   const [product, setProduct] = useState({});
@@ -14,7 +15,7 @@ const Product = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`https://e-commerce-shop-react-js.herokuapp.com/product/${id}`);
+      const response = await fetch(`${url}/product/${id}`);
       const data = await response.json();
 
       setLoading(false);

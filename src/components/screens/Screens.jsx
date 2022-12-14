@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import Filter from "./Filter.jsx";
 import MobileFilter from "./MobileFilter.jsx";
 import { useSelector } from "react-redux";
+import url from "../api/baseURL.js";
 
 export function clickHandler() {
   let filter = document.querySelector(".mobile-filter4");
@@ -33,7 +34,7 @@ const Screens = () => {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/screens/getAllScreens", {
+        const response = await fetch(`${url}/screens/getAllScreens`, {
           method: "POST",
           headers: {
             "content-type": "application/json"

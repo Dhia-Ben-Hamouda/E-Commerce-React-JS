@@ -3,6 +3,7 @@ import { FaGoogle , FaTwitter , FaFacebookF , FaLock , FaUser} from "react-icons
 import { IconContext } from "react-icons";
 import { TextField } from "@mui/material";
 import { createTheme , ThemeProvider } from "@mui/material/styles";
+import url from "../api/baseURL.js";
 
 const theme = createTheme({
   palette:{
@@ -21,7 +22,7 @@ const SignIn = () => {
   async function submitHandler(e) {
     e.preventDefault();
 
-    const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/auth/signIn", {
+    const response = await fetch(`${url}/auth/signIn`, {
       method: "POST",
       headers: {
         "content-type": "application/json"

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import url from "../api/baseURL.js";
 
 const theme = createTheme({
   palette: {
@@ -22,7 +23,7 @@ const SignUp = () => {
   async function submitHandler(e) {
     e.preventDefault();
 
-    const response = await fetch("https://e-commerce-shop-react-js.herokuapp.com/auth/signUp", {
+    const response = await fetch(`${url}/auth/signUp`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
