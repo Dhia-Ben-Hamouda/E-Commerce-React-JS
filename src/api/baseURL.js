@@ -1,4 +1,4 @@
 const local = "http://localhost:5000";
-const cloud = "e-commerce-react-js-backend.up.railway.app";
+const cloud = "https://e-commerce-backend-production-f59c.up.railway.app";
 
 export default cloud;

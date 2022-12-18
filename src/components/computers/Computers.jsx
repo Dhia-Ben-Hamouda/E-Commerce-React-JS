@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
-import url from "../api/baseURL.js";
+import url from "../../api/baseURL.js";
 
 export function clickHandler() {
   let filter = document.querySelector(".mobile-filter");
